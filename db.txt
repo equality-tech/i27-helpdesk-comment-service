@@ -1,0 +1,13 @@
+ALTER TABLE ticket_comments
+DROP FOREIGN KEY ticket_comments_ibfk_1,
+DROP FOREIGN KEY ticket_comments_ibfk_2;
+
+ALTER TABLE ticket_comments
+ADD COLUMN commented_by_role VARCHAR(20) NOT NULL AFTER commented_by;
+
+
+CREATE INDEX idx_ticket_comments_ticket_id
+ON ticket_comments(ticket_id);
+
+
+DESCRIBE ticket_comments;
