@@ -1,0 +1,15 @@
+          
+name: comment-ms-ci-cd
+on:
+  workflow_dispatch:
+
+jobs:
+  
+  python-test-build-push:    
+    name: python test build push
+    uses: equality-tech/i27-helpdesk-devops/.github/workflows/wf-reuse-python.yaml@main
+    with:
+      DOCKER_IMAGE_NAME: equalitytech/i27-comment-ms
+      DOCKERHUB_USERNAME: ${{vars.DOCKERHUB_USERNAME}}
+    secrets:
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}    
